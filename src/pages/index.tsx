@@ -44,7 +44,7 @@ export default function Home({ animes }: IAnimesProps) {
       </Head>
       <main>
         <Box
-          bg="blackAlpha.900"
+          bg="gray.700"
           display="flex"
           flexWrap="wrap"
           gap="4"
@@ -55,18 +55,20 @@ export default function Home({ animes }: IAnimesProps) {
               key={anime._id}
               w="60"
               h="96"
-              borderWidth="1px"
+              bgGradient="linear(to-l, purple.700, gray.500)"
+              border="none"
               rounded="lg"
               overflow="hidden"
-              bg="Window"
             >
-              <CardBody p={"1"} flex="column">
-                <Image
-                  src={anime.image}
-                  alt={anime.title}
-                  h="60%"
-                  fit="cover"
-                />
+              <CardBody>
+                <Box>
+                  <Image
+                    src={anime.image}
+                    alt={anime.title}
+                    boxSize="64"
+                    fit="contain"
+                  />
+                </Box>
                 <Text
                   pt={2}
                   fontWeight="bold"
@@ -74,24 +76,28 @@ export default function Home({ animes }: IAnimesProps) {
                   overflow="hidden"
                   textOverflow="ellipsis"
                   whiteSpace="nowrap"
+                  textColor="gray.200"
                 >
                   {anime.title}
                 </Text>
-                <CardFooter>
+                <CardFooter p="2">
                   <StackDivider
                     display="flex"
                     flexWrap="wrap"
                     justifyContent="center"
-                    gap="2"
                     alignItems="center"
+                    gap="1.5"
+                    boxSize="full"
                   >
                     {anime.genres.map((genre) => (
                       <Badge
                         key={genre}
                         bgColor={colors[genre]}
                         variant="solid"
+                        textColor="gray.300"
+                        p={1}
                       >
-                        {genre ?? colors[genre]}
+                        {genre}
                       </Badge>
                     ))}
                   </StackDivider>
