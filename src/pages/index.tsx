@@ -1,3 +1,4 @@
+import { NavBar } from "@/components/NavBar";
 import {
   Badge,
   Box,
@@ -43,12 +44,14 @@ export default function Home({ animes }: IAnimesProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <NavBar></NavBar>
         <Box
-          bg="gray.700"
           display="flex"
           flexWrap="wrap"
           gap="4"
           justifyContent="center"
+          w="full"
+          px="4"
         >
           {animes.map((anime) => (
             <Card
@@ -94,8 +97,9 @@ export default function Home({ animes }: IAnimesProps) {
                         key={genre}
                         bgColor={colors[genre]}
                         variant="solid"
-                        textColor="gray.300"
-                        p={1}
+                        textColor="gray.50"
+                        rounded="md"
+                        px={1.5}
                       >
                         {genre}
                       </Badge>
